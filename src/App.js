@@ -1,28 +1,32 @@
-import React, { Component } from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { Fragment } from 'react'
+import Toggle from './shared/Toggle'
+import Form from './shared/Form'
+import NameForm from './NameForm'
 
-class App extends Component {
-  render() {
+const App = () => {
     return (
-      <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <p>
-            Edit <code>src/App.js</code> and save to reload.
-          </p>
-          <a
-            className="App-link"
-            href="https://reactjs.org"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Learn React
-          </a>
-        </header>
-      </div>
-    );
-  }
+        <div className="container">
+            <Toggle render={({ toggle, isToggled }) =>
+                <Fragment>
+
+                    <button onClick={ toggle }>
+                        { isToggled ? "Close" : "Edit" }
+                    </button>
+
+                    { isToggled && 
+                        <Form 
+                            inputs={{ name: '', age: '' }}
+                            submit={inputs => alert(`My name is ${inputs.name} and I am ${inputs.age}!`)}
+                            render={props => <NameForm {...props}/>}
+                            toggle={ toggle }
+                            reset
+                        />
+                    }
+
+                </Fragment>
+            }/>
+        </div>
+    )
 }
 
-export default App;
+export default App
