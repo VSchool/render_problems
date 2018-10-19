@@ -11,3 +11,10 @@ Lastly, you will need to make sure that on form submit, an alert pops up with th
 You DO NOT need to change anything of the code.  The only file in the App that is broken is the App.js
 This means the shared components Form and Toggle are fully functional, it is just their implementation 
 on the App.js page that is not fully correct.
+
+To take on the challenge, cd to your 'exercises' folder run the following command your local console to clone down the broken app:
+    git clone -b broken_branch https://github.com/VSchool/render_probs.git && 
+    cd render_probs && 
+    rm -rf .git && 
+    npm i && 
+    code .
