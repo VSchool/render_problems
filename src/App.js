@@ -16,9 +16,11 @@ const App = () => {
                     { isToggled && 
                         <Form 
                             inputs={{ name: '', age: '' }}
-                            submit={inputs => alert(`My name is ${inputs.name} and I am ${inputs.age}!`)}
+                            submit={inputs => {
+                                alert(`My name is ${inputs.name} and I am ${inputs.age}!`)
+                                toggle()
+                            }}
                             render={props => <NameForm {...props}/>}
-                            toggle={ toggle }
                             reset
                         />
                     }

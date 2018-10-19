@@ -22,7 +22,6 @@ export default class Form extends Component {
         e.preventDefault()
         this.props.submit(this.state.inputs)
         this.props.reset && this.setState({ inputs: this.props.inputs })
-        this.props.toggle()
     }
 
     render(){
