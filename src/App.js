@@ -6,25 +6,27 @@ import NameForm from './NameForm'
 const App = () => {
     return (
         <div className="container">
-            <Toggle render={({ toggle, isToggled }) =>
+            <Toggle render={({ toggle }) =>                       
                 <Fragment>
 
-                    <button onClick={ toggle }>
-                        { isToggled ? "Close" : "Edit" }
+                    <button>                                     
+                        {isToggled ? "Close" : "Edit"}
                     </button>
 
-                    { isToggled && 
-                        <Form 
-                            inputs={{ name: '', age: '' }}
-                            submit={inputs => alert(`My name is ${inputs.name} and I am ${inputs.age}!`)}
-                            render={props => <NameForm {...props}/>}
-                            toggle={ toggle }
+                    {isToggled &&
+                        <Form
+                            inputs={ name: "", age: "" }           
+                            submit={inputs => {
+                                alert(`My name is ${inputs.name} and I am ${inputs.age}!`)
+                                toggle()
+                            }}
+                            render={props => <NameForm/>}          
                             reset
                         />
                     }
 
                 </Fragment>
-            }/>
+            } />
         </div>
     )
 }
